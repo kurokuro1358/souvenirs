@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+/* Topページのスライダー機能*/
+
+.loop_wrap {
+    display: flex;
+    height: 500px;
+    overflow: hidden;
+}
+
+.loop_wrap img {
+    width: auto;
+    height: 100%;
+}
+
+.top_thumb {
+    position: relative;
+}
+
+.top_thumb p {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-100%,-50%);
+    -webkit-transform: translate(-100%,-50%);
+    transform: translate(-100%,-50%);
+    margin:0;
+    padding:0;
+    background:rgba(255,255,255,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top_thumb img {
+    width: 100%;
+}
+
+footer a img{
+    width : 100px;
+}
+
+footer ul a {
+    color: black;
+}
+
+/*　ユーザ詳細*/
+
+.show_user {
+    display: flex; 
+    align-items: center;
+    padding: 80px 0;
+    margin-top: 50px;
+}
+
+.label_content {
+    font-size: 25px;
+    margin: 0 0 10px 50px;
+}
+
+.index_souvenir {
+    position: relative;
+}
+
+.index_souvenir a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+.index_souvenir{
+    height:400px;
+}
+
+.index_souvenir img {
+    /*width: 100%;*/
+    height: 300px;
+    object-fit: contain;
+}
+
+.heart form input{
+    background-color: white;
+    border: 0px;
+    font-size: 20px;
+}
+
+#show_thumb_image {
+    height: 400px;
+}
+
+#show_thumb_image img {
+    width: 100%;
+    max-height: 400px;
+}
+
+#show_souvenir_images .d-flex img {
+    width: 20%;
+    margin-right: 3px;
+}
+
+#select_prefecture {
+    position: relative;
+}
+
+#area1 {
+    position: absolute;
+    top: 100px;
+    left: 630px;
+}
+
+#area2 {
+    position: absolute;
+    top: 430px;
+    left: 610px;
+}
+
+#area3 {
+    position: absolute;
+    top: 400px;
+    left: 460px;
+}
+
+#area4 {
+    position: absolute;
+    top: 500px;
+    left: 340px;
+}
+
+#area5 {
+    position: absolute;
+    top: 480px;
+    left: 205px;
+}
+
+#area6 {
+    position: absolute;
+    top: 605px;
+    left: 208px;
+}
+
+#area7 {
+    position: absolute;
+    top: 480px;
+    left: 50px;
+}
+
+#area_button_1, #area_button_2, #area_button_3, #area_button_4, #area_button_5, #area_button_6, #area_button_7,
+#area_target_1 > div > a, #area_target_2 > div > a, #area_target_3 > div > a, #area_target_4 > div > a, #area_target_5 > div > a, #area_target_6 > div > a, #area_target_7 > div > a{
+    width: 130px;    
+}  
+
+#disable_review_form {
+    pointer-events: none;
+    color: #888;
+    background-color: #dbdcdd;
+    border-width: 0px;
+    box-shadow: none;
+}
+
+.reviewer {
+    font-size: 8px; 
+    max-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
