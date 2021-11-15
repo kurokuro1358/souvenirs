@@ -13,7 +13,7 @@
                 <div class="col-md-4 col-6 index_souvenir">
                     <div class="d-flex align-items-center">
                         {{-- サムネイル画像 --}}
-                        <img class="img-fluid" src="{{ $images[$index][0]->path }}">
+                        <img class="img-fluid" src="{{ $images[0][$index]->path }}">
                     </div>
                     <div class="pb-2">
                         {{-- お気に入りフォーム --}}

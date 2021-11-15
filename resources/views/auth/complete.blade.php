@@ -18,8 +18,4 @@
         </div>
     </div>
     
-    <div class="text-center mt-4">
-        <div class="btn btn-light border-secondary mr-2">お土産を探す</div>
-        <div class="btn btn-light border-secondary ml-2">お土産を登録する</div>
-    </div>
 @endsection

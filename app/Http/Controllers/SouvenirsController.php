@@ -33,6 +33,7 @@ class SouvenirsController extends Controller
         foreach($souvenirs as $souvenir){
             $images[] = $souvenir->images()->get();
         }
+        
 
         // 一覧ビューに表示
         return view('souvenirs.index', [
@@ -224,6 +225,8 @@ class SouvenirsController extends Controller
         foreach($souvenirs as $souvenir){
             $images[] = $souvenir->images()->get();
         }
+        
+        dd($images);
         
         // 一覧ビューに表示
         return view('souvenirs.registered', [
