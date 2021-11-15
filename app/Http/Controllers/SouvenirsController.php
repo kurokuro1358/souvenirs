@@ -109,7 +109,7 @@ class SouvenirsController extends Controller
         // 画像の保存
         foreach($files as $file){
         	// aws images下に画像を保存
-        	$path = Storage::disk('s3')->putFile('/images', $file);
+        	$path = Storage::disk('s3')->putFile('/images', $file, 'public');
         	$souvenir->images()->create([
                 'path' => Storage::disk('s3')->url($path)
             ]);
@@ -172,7 +172,7 @@ class SouvenirsController extends Controller
             $files = $request->file('file');
             foreach($files as $file){
             	// aws images下に画像を保存
-            	$path = Storage::disk('s3')->putFile('/images', $file);
+            	$path = Storage::disk('s3')->putFile('/images', $file, 'public');
             	$souvenir->images()->create([
                     'path' => Storage::disk('s3')->url($path)
                 ]);
@@ -225,8 +225,6 @@ class SouvenirsController extends Controller
         foreach($souvenirs as $souvenir){
             $images[] = $souvenir->images()->get();
         }
-        
-        dd($images);
         
         // 一覧ビューに表示
         return view('souvenirs.registered', [
