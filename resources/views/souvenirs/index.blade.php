@@ -25,7 +25,7 @@
                     
                     <div class="d-flex align-items-center">
                         {{-- 画像サムネイル --}}
-                        <img class="img-fluid" src="/storage/{{ $images[$index][0]->path }}">
+                        <img class="img-fluid" src="{{ $images[$index][0]->path }}">
                     </div>
                     
                     <div class="pb-2">

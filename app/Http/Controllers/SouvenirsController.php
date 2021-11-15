@@ -90,17 +90,6 @@ class SouvenirsController extends Controller
             'address' => 'max:16300'
         ]);
         
-        // 入力された画像情報を取得
-        $files = $request->file('file');
-
-        // 画像の保存
-        foreach($files as $file){
-            // 画像の名前を取得
-        	$file_name = $file->getClientOriginalName();
-        	// public下に画像を保存
-        	$file->storeAS('public',$file_name);
-        }
-        
         // お土産情報の保存
         $user = \Auth::user();
         $souvenir = $user->souvenirs()->create([
@@ -113,11 +102,15 @@ class SouvenirsController extends Controller
             'address' => $request->address
         ]);
         
-        // 画像情報の保存
-        $images = array();
+        // 入力された画像情報を取得
+        $files = $request->file('file');
+
+        // 画像の保存
         foreach($files as $file){
-            $images[] = $souvenir->images()->create([
-                'path' => $file->getClientOriginalName()
+        	// aws images下に画像を保存
+        	$path = Storage::disk('s3')->putFile('/images', $file);
+        	$souvenir->images()->create([
+                'path' => Storage::disk('s3')->url($path)
             ]);
         }
         
@@ -177,10 +170,10 @@ class SouvenirsController extends Controller
             // 新しい画像の保存
             $files = $request->file('file');
             foreach($files as $file){
-            	$file_name = $file->getClientOriginalName();
-            	$file->storeAS('public',$file_name);
+            	// aws images下に画像を保存
+            	$path = Storage::disk('s3')->putFile('/images', $file);
             	$souvenir->images()->create([
-                    'path' => $file_name
+                    'path' => Storage::disk('s3')->url($path)
                 ]);
             }
         }
@@ -211,7 +204,9 @@ class SouvenirsController extends Controller
         // お土産のdeleted_atに日時を記録
         $souvenir->delete();
         // 画像のdeleted_atに日時を記録
-        $images->delete();
+        foreach($images as $image){
+            $image->delete();
+        }
         
         // 登録したお土産一覧に遷移
         return $this->registered();

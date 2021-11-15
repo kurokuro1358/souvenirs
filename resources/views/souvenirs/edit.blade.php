@@ -5,7 +5,7 @@
     <div class="w-100">
         <div id="show_images">
             @foreach($images as $image)
-                <img class="img-fluid mb-2 w-25" src="/storage/{{ $image->path }}">
+                <img class="img-fluid mb-2 w-25" src="{{ $image->path }}">
             @endforeach
         </div>
         {!! Form::open(['route' => ['souvenirs.update', 'souvenir' => $souvenir->id], 'method' => 'put', 'files' => true] ) !!}

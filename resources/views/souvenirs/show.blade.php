@@ -15,11 +15,11 @@
         {{-- お土産の画像 --}}
         <div class="col-12 col-md-6" id="show_souvenir_images">
             {{-- サムネイル画像を表示する--}}
-            <div id="show_thumb_image" class="mb-1"><img class="img-fluid" src="/storage/{{ $images[0]->path }}"></div>
+            <div id="show_thumb_image" class="mb-1"><img class="img-fluid" src="{{ $images[0]->path }}"></div>
             {{-- すべての画像を表示する --}}
             <div class="d-flex justify-content-start">
                 @foreach($images as $image)
-                    <img class="img-fluid" src="/storage/{{ $image->path }}">
+                    <img class="img-fluid" src="{{ $image->path }}">
                 @endforeach
             </div>
         </div> 
